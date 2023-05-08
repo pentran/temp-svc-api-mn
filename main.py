@@ -18,7 +18,7 @@ async def preview():
 @app.get('/svc/<value>')
 async def svccode(value):
     print('value: ', value)
-    filtered = df[df['svc_code'] == value]
+    filtered = df[df['svc_code\'] == value]
     if len(filtered) <= 0:
         return {'There is nothing here'}
     else: 
@@ -26,7 +26,7 @@ async def svccode(value):
 
 @app.get('/svc/<value>/sex/<value2>')
 async def svccode2(value, value2):
-    filtered = df[df['svc_code'] == value]
+    filtered = df[df['svc_code\'] == value]
     filtered2 = filtered[filtered['sex'] == value2]
     if len(filtered2) <= 0:
         return {'There is nothing here'}
