@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.route('/', methods=["GET"])
 async def home():
-    return 'this is a API service for MN SVC code details'
+    return {'this is a API service for MN SVC code details'}
 
 @app.route('/preview', methods=["GET"])
 async def preview():
