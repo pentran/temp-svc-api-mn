@@ -20,7 +20,7 @@ async def svccode(value):
     print('value: ', value)
     filtered = df[df['svc_code'] == value]
     if len(filtered) <= 0:
-        return 'There is nothing here'
+        return {'There is nothing here'}
     else: 
         return {filtered.to_json(orient="records")}
 
