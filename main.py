@@ -15,7 +15,7 @@ async def preview():
     result = top10rows.to_json(orient="records")
     return {result}
 
-@app.get('/svc/<value>')
+@app.get("/svc/{value}")
 async def svccode(value):
     print('value: ', value)
     filtered = df[df['svc_code'] == value]
@@ -24,7 +24,7 @@ async def svccode(value):
     else: 
         return {filtered.to_json(orient="records")}
 
-@app.get('/svc/<value>/sex/<value2>')
+@app.get('/svc/{value}/sex/{value2}')
 async def svccode2(value, value2):
     filtered = df[df['svc_code'] == value]
     filtered2 = filtered[filtered['sex'] == value2]
