@@ -1,3 +1,4 @@
 fastapi==0.95.1
 pandas
+uvicorn==0.21.1
 

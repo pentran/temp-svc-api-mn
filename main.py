@@ -13,7 +13,7 @@ async def home():
 async def preview():
     top10rows = df.head(1)
     result = top10rows.to_json(orient="records")
-    return result
+    return {result}
 
 @app.route('/svc/<value>', methods=['GET'])
 async def svccode(value):
@@ -22,17 +22,16 @@ async def svccode(value):
     if len(filtered) <= 0:
         return 'There is nothing here'
     else: 
-        return filtered.to_json(orient="records")
+        return {filtered.to_json(orient="records")}
 
 @app.route('/svc/<value>/sex/<value2>')
 async def svccode2(value, value2):
     filtered = df[df['principal_diagnosis_code'] == value]
     filtered2 = filtered[filtered['sex'] == value2]
     if len(filtered2) <= 0:
-        return 'There is nothing here'
+        return {'There is nothing here'}
     else: 
-        return filtered2.to_json(orient="records")    
+        return {filtered2.to_json(orient="records")}    
     
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
